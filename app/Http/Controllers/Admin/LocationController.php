@@ -24,7 +24,7 @@ class LocationController extends Controller
     public function index()
     {
         $locations = $this->getAllLocactionService->getAll();
-        return view('locations.index',compact('locations'));
+        return view('admin.locations.index',compact('locations'));
     }
 
     /**
