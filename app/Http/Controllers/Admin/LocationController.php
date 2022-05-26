@@ -51,8 +51,9 @@ class LocationController extends Controller
     public function store(Request $request)
     {
         $data=new Location($request->all());
+        $district_id=District::where('id',"=",$request->district)->get();
         $data['address']=$request->ward;
-        dd($data['address']);
+        dd($district_id);
 
     }
 
