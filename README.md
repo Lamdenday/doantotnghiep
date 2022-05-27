@@ -7,3 +7,5 @@
 # tao db tren mysql va sua ten db trong file .env 
 
 # php artisan db:seed
+
+#t biết dùng mà bro !! -- Lam Le
