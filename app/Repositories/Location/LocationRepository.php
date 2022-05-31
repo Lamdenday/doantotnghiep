@@ -12,4 +12,5 @@ use Prettus\Repository\Contracts\RepositoryInterface;
 interface LocationRepository extends RepositoryInterface
 {
     public function getAll();
+
 }

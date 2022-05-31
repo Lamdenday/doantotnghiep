@@ -15,7 +15,7 @@ use App\Validators\Location\LocationValidator;
  */
 class LocationRepositoryEloquent extends BaseRepository implements LocationRepository
 {
-    /**
+    /**z
      * Specify Model class name
      *
      * @return string
@@ -43,6 +43,6 @@ class LocationRepositoryEloquent extends BaseRepository implements LocationRepos
 
     public function getAll()
     {
-        return $this->locations->get();
+        return $this->locations->orderBy('id','DESC')->paginate(5);
     }
 }
