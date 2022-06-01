@@ -96,8 +96,8 @@ class LocationController extends Controller
      */
     public function show(Location $location,$id)
     {
-
-        
+        $locations=Location::find($id);
+        return view('admin.locations.show',compact('locations'));
     }
 
     /**
@@ -131,7 +131,7 @@ class LocationController extends Controller
      * @param  \App\Models\Location  $location
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Location $location,$id)
+    public function update(LocationUpdateRequest $request, Location $location,$id)
     {
         $data=Location::find($id);
         $data['location_name']= $request->location_name;

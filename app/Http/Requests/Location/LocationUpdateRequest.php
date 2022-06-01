@@ -13,7 +13,7 @@ class LocationUpdateRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,11 @@ class LocationUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'location_name'=>'required',
+            'district'=>'required',
+            'ward'=>'required',
+            'description'=>'required',
+            'checkin'=>'required|max:255',
         ];
     }
 }
