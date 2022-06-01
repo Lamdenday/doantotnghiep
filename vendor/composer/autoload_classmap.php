@@ -22,6 +22,8 @@ return array(
     'App\\Http\\Middleware\\TrustHosts' => $baseDir . '/app/Http/Middleware/TrustHosts.php',
     'App\\Http\\Middleware\\TrustProxies' => $baseDir . '/app/Http/Middleware/TrustProxies.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
+    'App\\Http\\Requests\\Location\\LocationStoreRequest' => $baseDir . '/app/Http/Requests/Location/LocationStoreRequest.php',
+    'App\\Http\\Requests\\Location\\LocationUpdateRequest' => $baseDir . '/app/Http/Requests/Location/LocationUpdateRequest.php',
     'App\\Models\\District' => $baseDir . '/app/Models/District.php',
     'App\\Models\\KpiDashboard' => $baseDir . '/app/Models/KpiDashboard.php',
     'App\\Models\\Location' => $baseDir . '/app/Models/Location.php',

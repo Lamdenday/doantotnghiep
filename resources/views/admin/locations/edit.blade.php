@@ -13,6 +13,9 @@
                     <div class="form-group">
                         <label for="" class="form-label font-weight-bold text-dark">Location name</label>
                         <input type="text" class="form-control" name="location_name" id="location_name" value="{{ $locations->location_name }}">
+                        @error('location_name')
+                        <div class="text-danger errMsg" >{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="" class="form-label font-weight-bold text-dark">Slug</label>
@@ -22,6 +25,9 @@
                             $arr_slug_string=implode('-',$arr_slug);
                         ?>
                         <input type="text" class="form-control" name="slug" id="slug" value="{{ $arr_slug_string }}"  role="input">
+                        @error('slug')
+                        <div class="text-danger errMsg" >{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="" class="form-label font-weight-bold text-dark">Address</label>
@@ -33,11 +39,17 @@
                             <option value="{{ $district->id }}">{{ $district->name }}</option>
                             @endforeach
                         </select>
+                        @error('district')
+                        <div class="text-danger errMsg" >{{ $message }}</div>
+                        @enderror
                         <select name="ward" id="ward" class="form-select mt-3 choose">
                             @foreach($ward_list as $ward)
                             <option value="{{ $ward->id }}">{{ $ward->name }} </option>
                             @endforeach
                         </select>
+                        @error('ward')
+                        <div class="text-danger errMsg" >{{ $message }}</div>
+                        @enderror
                         <?php 
                             $array=explode(',',$locations->address);
                         ?>
@@ -49,8 +61,10 @@
                     </div>
                     <div class="form-group">
                         <lable class="form-label font-weight-bold text-dark">Image</lable>
-                        <input type="file" class="form-control mb-3" name="image" onChange="preview()">
-                        <img id="blah" src="{{ asset('uploads/locations') }}/{{ $locations->image }}" class="rounded" height="150px">
+                        <input type="file" class="form-control mb-3" name="image" onChange="preview()">   
+                        @error('image')
+                        <div class="text-danger errMsg" >{{ $message }}</div>
+                        @enderror<img id="blah" src="{{ asset('uploads/locations') }}/{{ $locations->image }}" class="rounded" height="150px">
                     </div>
                 </div>
        
@@ -60,11 +74,17 @@
                         <textarea name="description" id="" cols="30" rows="10" class="form-control">
                             {{ $locations->description }}
                         </textarea>
+                        @error('description')
+                        <div class="text-danger errMsg" >{{ $message }}</div>
+                        @enderror
                     </div>
                  
                     <div class="form-group">
                         <label for="" class="form-label font-weight-bold text-dark" >Checkin</label>
                         <input type="text" class="form-control" name="checkin" value="{{ $locations->checkin }}">
+                        @error('checkin')
+                        <div class="text-danger errMsg" >{{ $message }}</div>
+                        @enderror
                     </div>
                 </div>
             </div> 
@@ -100,6 +120,11 @@
                 })
             })
         })
+    </script>
+    <script>
+        $(document).ready(function(){
+    $(".errMsg").fadeOut(4000); 
+      });
     </script>
        <script>
         function preview()

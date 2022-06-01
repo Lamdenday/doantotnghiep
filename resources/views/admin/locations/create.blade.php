@@ -109,10 +109,10 @@
         })
     </script>
     <script>
-          $(document).ready(function(){
-      $(".errMsg").fadeOut(4000); 
-        });
-    </script>
+        $(document).ready(function(){
+    $(".errMsg").fadeOut(4000); 
+      });
+  </script>
     <script>
     function preview()
     {

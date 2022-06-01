@@ -1,7 +1,7 @@
 @extends('admin.master')
 @section('content')
 <center>
-   <h1>Location list Page</h1>
+   <h2>{{ __('language.location_list') }}</h2>
 </center>
 
 
@@ -20,7 +20,6 @@
             <th>Address</th>
             <th>Description</th>
             <th>Image</th>
-            <th>Checkin</th>
             <th>Action</th>
          </tr>
       </thead>
@@ -35,16 +34,12 @@
             <td>{{ Str::limit($location->description,10,'...') }}</td>
             <td>
                <a href="{{ asset('uploads/locations') }}/{{ $location->image }}" target="_blank">
-                  <center>
-                     <img src="{{ asset('uploads/locations') }}/{{ $location->image }}" alt="" width="120px">
-                  </center>
+                  
+                     <img src="{{ asset('uploads/locations') }}/{{ $location->image }}" class="shadow-lg p-1 mb-1 bg-white" alt="" width="120px">               
                </a>
             </td>
-            <td>
-               <a href=""></a>
-            </td>
-            <td>
-               <center>
+           
+            <td>    
                   <form action="{{ route('location.destroy',['id'=>$location->id]) }}" method="POST">
                      @csrf
                      @method('DELETE')
@@ -52,7 +47,6 @@
                      <a href="{{ route('location.show',['id'=>$location->id]) }}" title="{{ $location->location_name }}  details" class="btn btn-success"><i class="fa-solid fa-circle-info"></i></a>
                      <button type="submit" onclick="return confirm('Bạn có muốn xóa Bạn có muốn xóa dữ liệu này không ?')" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
                   </form>
-               </center>
             </td>
          </tr>
        
