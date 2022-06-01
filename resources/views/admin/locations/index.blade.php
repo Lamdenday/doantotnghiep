@@ -4,10 +4,13 @@
    <h1>Location list Page</h1>
 </center>
 
+
 <div class="container mt-2">
-   @if (session('status'))
+   <div id="myElem">
+      @if (session('status'))
       <div class=" mb-3 alert alert-success text-light fw-bold">{{ session('status') }}</div>
-   @endif
+     @endif
+   </div>
    <a href="{{ route('location.create') }}" title="Add new location" class="btn btn-info"><i class="fa-solid fa-plus"></i></a>
    <table class="table table-striped">
       <thead>
@@ -17,13 +20,16 @@
             <th>Address</th>
             <th>Description</th>
             <th>Image</th>
+            <th>Checkin</th>
             <th>Action</th>
          </tr>
       </thead>
       <tbody>
-         @foreach ($locations as $location)
+         <?php $k=1;?>
+         @if(count($locations)>0)
+         @foreach ($locations as $location)   
          <tr>
-            <td>{{ $location->id }}</td>
+            <td>{{ $k++ }}</td>
             <td>{{ $location->location_name }}</td>
             <td>{{ Str::limit($location->address,10,'...') }}</td>
             <td>{{ Str::limit($location->description,10,'...') }}</td>
@@ -33,6 +39,9 @@
                      <img src="{{ asset('uploads/locations') }}/{{ $location->image }}" alt="" width="120px">
                   </center>
                </a>
+            </td>
+            <td>
+               <a href=""></a>
             </td>
             <td>
                <center>
@@ -46,9 +55,20 @@
                </center>
             </td>
          </tr>
+       
          @endforeach
+         @else
+         <tr>
+         <td colspan="6"><h3 class="text-danger"><center>Empty record!</center></h3></td>
+         </tr>
+         @endif
       </tbody>
    </table>
    {{ $locations->links() }}
 </div>
+<script>
+   $(document).ready(function(){
+      $("#myElem").fadeOut(3000); 
+});
+</script>
 @endsection

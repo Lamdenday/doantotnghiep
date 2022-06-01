@@ -10,64 +10,66 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="" class="form-label font-weight-bold text-dark">Location name</label>
+                        <label for="" class="form-label font-weight-bold text-dark">Location name</label><label for="" class="text-danger">*</label>
                         <input type="text" class="form-control" name="location_name" id="location_name" value="{{ old('location_name') }}">
                         @error('location_name')
-                        <div class="text-danger">{{ $message }}</div>
+                        <div class="text-danger errMsg" >{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="" class="form-label font-weight-bold text-dark">Slug</label>
+                        <label for="" class="form-label font-weight-bold text-dark">Slug</label><label for="" class="text-danger">*</label>
                         <input type="text" class="form-control" name="slug" id="slug" value="{{ old('slug') }}">
                         @error('slug')
-                        <div class="text-danger">{{ $message }}</div>
+                        <div class="text-danger errMsg" >{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="" class="form-label font-weight-bold text-dark">Address</label>
-                        <select name="district" id="district" class="form-select choose district">
+                        <label for="" class="form-label font-weight-bold text-dark">Address</label><label for="" class="text-danger">*</label>
+                        <select name="district" value="" id="district" class="form-select choose district">
+
                             <option value=""> -- Choose Districts -- </option>
                             @foreach ($districts as $district)
                             <option value="{{ $district->id }}">{{ $district->name }}</option>
                             @endforeach
                         </select>
                         @error('district')
-                        <div class="text-danger">{{ $message }}</div>
+                        <div class="text-danger errMsg" >{{ $message }}</div>
                         @enderror
                         <select name="ward" id="ward" class="form-select mt-3 choose">
-                            <option value=""> -- Choose Ward -- </option>
+                            <option value="{{ old('ward') }}"> -- Choose Ward -- </option>
                         </select>
                         @error('ward')
-                        <div class="text-danger">{{ $message }}</div>
+                        <div class="text-danger errMsg" >{{ $message }}</div>
                         @enderror
                         <input type="text" class="form-control mt-3" name="address_detail" value="{{ old('address_detail') }}" placeholder="Enter address detail ...">
                     </div>
                     <div class="form-group">
-                        <lable class="form-label font-weight-bold text-dark">Image</lable>
+                        <label class="form-label font-weight-bold text-dark">Image</label><label for="" class="text-danger">*</label>
                         <input type="file" class="form-control mb-3" name="image" onChange="preview()">
-                        <img id="blah" class="rounded" height="150px">
                         @error('image')
-                        <div class="text-danger">{{ $message }}</div>
+                        <div class="text-danger errMsg" >{{ $message }}</div>
                         @enderror
+                        <img id="blah" class="rounded" height="150px">
+                    
                     </div>
                 </div>
        
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="" class="form-label font-weight-bold text-dark">Description</label>
+                        <label for="" class="form-label font-weight-bold text-dark">Description</label><label for="" class="text-danger">*</label>
                         <textarea name="description" id="" cols="30" rows="10" class="form-control">
                             {{ old('description') }}
                         </textarea>
                         @error('description')
-                        <div class="text-danger">{{ $message }}</div>
+                        <div class="text-danger errMsg" >{{ $message }}</div>
                         @enderror
                     </div>
                  
                     <div class="form-group">
-                        <label for="" class="form-label font-weight-bold text-dark" >Checkin</label>
+                        <label for="" class="form-label font-weight-bold text-dark" >Checkin</label><label for="" class="text-danger">*</label>
                         <input type="text" class="form-control" name="checkin" value="{{ old('checkin') }}">
                         @error('checkin')
-                        <div class="text-danger">{{ $message }}</div>
+                        <div class="text-danger errMsg" >{{ $message }}</div>
                         @enderror
                     </div>
                 </div>
@@ -105,6 +107,11 @@
                 })
             })
         })
+    </script>
+    <script>
+          $(document).ready(function(){
+      $(".errMsg").fadeOut(4000); 
+        });
     </script>
     <script>
     function preview()

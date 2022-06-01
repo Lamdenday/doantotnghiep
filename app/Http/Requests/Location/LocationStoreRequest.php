@@ -27,9 +27,9 @@ class LocationStoreRequest extends FormRequest
             'location_name'=>'required',
             'district'=>'required',
             'ward'=>'required',
-            'image'=>'image',
+            'image'=>'image|required',
             'description'=>'required',
-            'checkin'=>'required',
+            'checkin'=>'required|max:255',
         ];
     }
 }

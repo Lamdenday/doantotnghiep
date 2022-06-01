@@ -52,7 +52,7 @@
     <div class="collapse navbar-collapse  w-auto  max-height-vh-100" id="sidenav-collapse-main">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link text-white active bg-gradient-primary" href="{{ asset('admin') }}/pages/dashboard.html">
+          <a class="nav-link text-white active bg-gradient-primary" href="/dashboard">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">dashboard</i>
             </div>
@@ -60,19 +60,17 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="{{ asset('admin') }}/pages/tables.html">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">table_view</i>
-            </div>
-            <span class="nav-link-text ms-1">Tables</span>
+          <a class="nav-link text-white " href="/location">
+            <i class="fa-solid fa-earth-asia"></i>
+            <span class="nav-link-text ms-1"> Locations</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="{{ asset('admin') }}/pages/billing.html">
+          <a class="nav-link text-white " href="/location">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">receipt_long</i>
+              <i class="material-icons opacity-10"></i>
             </div>
-            <span class="nav-link-text ms-1">Billing</span>
+            <span class="nav-link-text ms-1">Location image</span>
           </a>
         </li>
       </ul>

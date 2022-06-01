@@ -1,9 +1,13 @@
 # copy .env.example .env
 
-# composer update
+# composer install 
 
 # php artisan key:generate
 
 # tao db tren mysql va sua ten db trong file .env 
 
-# php artisan db:seed
+# import database from "database/travel_booking_db.sql"
+
+# php artisan serve 
+
+# link localhost:8000/location 

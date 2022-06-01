@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('admin.master');
 });
 
+Route::get('/dashboard',function(){
+    return view('admin.dashboard');
+});
+
 Route::get('/location',[\App\Http\Controllers\Admin\LocationController::class,'index'])->name('location.index');
 Route::get('/location/create',[\App\Http\Controllers\Admin\LocationController::class,'create'])->name('location.create');
 Route::post('/location/select-address',[\App\Http\Controllers\Admin\LocationController::class,'select_address'])->name('location.select_address');
