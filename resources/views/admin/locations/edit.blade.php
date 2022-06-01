@@ -1,76 +1,70 @@
 @extends('admin.master')
 
 @section('content')
-    <center><h1>Location add new page</h1></center>
+    <center><h1>Location edit page</h1></center>
     <div class="container">
-        <a href="{{ route('location.index') }}" class="btn btn-info"><i class="fa-solid fa-arrow-rotate-left"></i></a>
+    <a href="{{ route('location.index') }}" class="btn btn-info"><i class="fa-solid fa-arrow-rotate-left"></i></a>
 
-        <form action="{{ route('location.store') }}" method="POST" class="mb-5 mt-2" enctype="multipart/form-data">
+        <form action="{{ route('location.update',['id'=>$locations->id]) }}" method="post" enctype="multipart/form-data">
             @csrf
+            @method('PUT')
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="" class="form-label font-weight-bold text-dark">Location name</label><label for="" class="text-danger">*</label>
-                        <input type="text" class="form-control" name="location_name" id="location_name" value="{{ old('location_name') }}">
-                        @error('location_name')
-                        <div class="text-danger errMsg" >{{ $message }}</div>
-                        @enderror
+                        <label for="" class="form-label font-weight-bold text-dark">Location name</label>
+                        <input type="text" class="form-control" name="location_name" id="location_name" value="{{ $locations->location_name }}">
                     </div>
                     <div class="form-group">
-                        <label for="" class="form-label font-weight-bold text-dark">Slug</label><label for="" class="text-danger">*</label>
-                        <input type="text" class="form-control" name="slug" id="slug" value="{{ old('slug') }}">
-                        @error('slug')
-                        <div class="text-danger errMsg" >{{ $message }}</div>
-                        @enderror
+                        <label for="" class="form-label font-weight-bold text-dark">Slug</label>
+                        <?php
+                            $arr_slug=explode('-',$locations->slug);
+                            array_pop($arr_slug);
+                            $arr_slug_string=implode('-',$arr_slug);
+                        ?>
+                        <input type="text" class="form-control" name="slug" id="slug" value="{{ $arr_slug_string }}"  role="input">
                     </div>
                     <div class="form-group">
-                        <label for="" class="form-label font-weight-bold text-dark">Address</label><label for="" class="text-danger">*</label>
-                        <select name="district" value="" id="district" class="form-select choose district">
-
-                            <option value=""> -- Choose Districts -- </option>
+                        <label for="" class="form-label font-weight-bold text-dark">Address</label>
+                        <select name="district" id="district" class="form-select choose district">
+                            @foreach($district_list as $district)
+                            <option value="{{ $district->id }}"> {{ $district->name}}</option>
+                            @endforeach
                             @foreach ($districts as $district)
                             <option value="{{ $district->id }}">{{ $district->name }}</option>
                             @endforeach
                         </select>
-                        @error('district')
-                        <div class="text-danger errMsg" >{{ $message }}</div>
-                        @enderror
                         <select name="ward" id="ward" class="form-select mt-3 choose">
-                            <option value="{{ old('ward') }}"> -- Choose Ward -- </option>
+                            @foreach($ward_list as $ward)
+                            <option value="{{ $ward->id }}">{{ $ward->name }} </option>
+                            @endforeach
                         </select>
-                        @error('ward')
-                        <div class="text-danger errMsg" >{{ $message }}</div>
-                        @enderror
-                        <input type="text" class="form-control mt-3" name="address_detail" value="{{ old('address_detail') }}" placeholder="Enter address detail ...">
+                        <?php 
+                            $array=explode(',',$locations->address);
+                        ?>
+                        @if(count($array)>=3)
+                        <input type="text" class="form-control mt-3" name="address_detail" value="{{ $array[0] }}" placeholder="Enter address detail ...">
+                        @elseif(count($array)<3)
+                        <input type="text" class="form-control mt-3" name="address_detail" value="" placeholder="Enter address detail ...">
+                        @endif
                     </div>
                     <div class="form-group">
-                        <label class="form-label font-weight-bold text-dark">Image</label><label for="" class="text-danger">*</label>
+                        <lable class="form-label font-weight-bold text-dark">Image</lable>
                         <input type="file" class="form-control mb-3" name="image" onChange="preview()">
-                        @error('image')
-                        <div class="text-danger errMsg" >{{ $message }}</div>
-                        @enderror
-                        <img id="blah" class="rounded" height="150px">
-                    
+                        <img id="blah" src="{{ asset('uploads/locations') }}/{{ $locations->image }}" class="rounded" height="150px">
                     </div>
                 </div>
        
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="" class="form-label font-weight-bold text-dark">Description</label><label for="" class="text-danger">*</label>
+                        <label for="" class="form-label font-weight-bold text-dark">Description</label>
                         <textarea name="description" id="" cols="30" rows="10" class="form-control">
-                            {{ old('description') }}
+                            {{ $locations->description }}
                         </textarea>
-                        @error('description')
-                        <div class="text-danger errMsg" >{{ $message }}</div>
-                        @enderror
                     </div>
                  
                     <div class="form-group">
-                        <label for="" class="form-label font-weight-bold text-dark" >Checkin</label><label for="" class="text-danger">*</label>
-                        <input type="text" class="form-control" name="checkin" value="{{ old('checkin') }}">
-                        @error('checkin')
-                        <div class="text-danger errMsg" >{{ $message }}</div>
-                        @enderror
+                        <label for="" class="form-label font-weight-bold text-dark" >Checkin</label>
+                        <input type="text" class="form-control" name="checkin" value="{{ $locations->checkin }}">
                     </div>
                 </div>
             </div> 
@@ -78,7 +72,6 @@
                 <button type="submit" class="btn btn-primary"><i class="fa-solid fa-plus"></i></button>
                 <button type="reset"  class="btn btn-success"><i class="fa-solid fa-trash-can-arrow-up"></i></button>
             </div>
-            
         </form>
     </div>
     <script type="text/javascript">
@@ -108,17 +101,12 @@
             })
         })
     </script>
-    <script>
-          $(document).ready(function(){
-      $(".errMsg").fadeOut(4000); 
-        });
-    </script>
-    <script>
-    function preview()
-    {
-        blah.src = URL.createObjectURL(event.target.files[0]);
-    }
-    </script>
+       <script>
+        function preview()
+        {
+            blah.src = URL.createObjectURL(event.target.files[0]);
+        }
+        </script>
     <script>
         $('input#location_name').keyup(function(event) {
         /* Act on the event */

@@ -1,11 +1,7 @@
 # copy .env.example .env
 
-# composer update
+# composer install 
 
 # php artisan key:generate
 
-# tao db tren mysql va sua ten db trong file .env 
-
-# php artisan db:seed
-
-#t biết dùng mà bro !! -- Lam Le
+# tao db tren mysql va sua ten db trong file .env

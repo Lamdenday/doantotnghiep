@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('description');
             $table->string('image');
             $table->string('checkin');
+            $table->string('slug');
             $table->timestamps();
         });
     }

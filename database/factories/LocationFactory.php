@@ -22,6 +22,7 @@ class LocationFactory extends Factory
             'description'=>$this->faker->text(),
             'image'=>'free-demo.jpg',
             'checkin'=>'https://dulichviet.com.vn/du-lich-nuoc-ngoai/du-lich-he-tour-du-lich-tho-nhi-ky-kham-pha-vuong-trieu-ottoman-tu-sai-gon-2022?idschedule=81905',
+            'slug'=>'h-m-n-h-f-s-s-a',
         ];
     }
 }
