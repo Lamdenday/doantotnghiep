@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: localhost
--- Thời gian đã tạo: Th6 01, 2022 lúc 05:03 AM
+-- Thời gian đã tạo: Th6 01, 2022 lúc 12:00 PM
 -- Phiên bản máy phục vụ: 10.4.24-MariaDB
 -- Phiên bản PHP: 7.4.28
 
@@ -110,8 +110,12 @@ CREATE TABLE `locations` (
 --
 
 INSERT INTO `locations` (`id`, `location_name`, `address`, `description`, `image`, `checkin`, `slug`, `created_at`, `updated_at`) VALUES
-(18, 'Duncan Chandler', 'Keelie Farrell,Thị trấn Phúc Thọ,Huyện Phúc Thọ', 'Aut laborum nostrum', '1654050447.jpeg', 'Larissa Vargas', 'Qui aliqua Deleniti-877793', '2022-05-31 19:27:27', '2022-05-31 19:27:27'),
-(19, 'Stuart Curtis', 'Neville Velazquez,Thị trấn Phúc Thọ,Huyện Phúc Thọ', 'Ex beatae delectus', '1654051135.jpeg', 'Idona Hess', 'Sed quo ab est cupid-939043', '2022-05-31 19:38:55', '2022-05-31 19:38:55');
+(20, 'Văn Miếu Quốc Tử Giám', '58 Quốc Tử Giám,Phường Quốc Tử Giám,Quận Đống Đa', 'Ngôi đền Nho giáo có khoảng sân tươi đẹp, bàn thờ và đền thờ lớn, và cổng chính đồ sộ.', '1654074214.jpeg', 'https://www.google.com/maps/place/V%C4%83n+Mi%C3%AA%CC%81u+%E2%80%93+Qu%C3%B4%CC%81c+T%C6%B0%CC%89+Gia%CC%81m/@21.0274986,105.8332418,17z/data=!3m1!4b1!4m5!3m4!1s0x3135ab9926e7bd67:0x580e078874d5df1e!8m2!3d21.0274986!4d105.8354305?hl=vi-VN', 'van-mieu-quoc-tu-giam-299367', '2022-06-01 02:03:34', '2022-06-01 02:11:29'),
+(21, 'Chùa Một Cột', 'Đường Chùa Một Cột,Phường Đội Cấn,Quận Ba Đình', 'Ngôi chùa thờ Phật đã được xây lại, vốn được dựng lên vào năm 1049 với thiết kế hoa sen.', '1654076156.jpeg', 'https://www.google.com/maps/place/Ch%C3%B9a+M%E1%BB%99t+C%E1%BB%99t/@21.0358532,105.8314341,17z/data=!4m6!3m5!1s0x3135aba1728475ed:0xdbe7366fe9dfc2ae!8m2!3d21.0358532!4d105.8336228!10e1?hl=vi-VN', 'chua-mot-cot-431363', '2022-06-01 02:35:56', '2022-06-01 02:35:56'),
+(22, 'Cầu Thê Húc', 'Cầu Thê Húc,Phường Hàng Trống,Quận Hoàn Kiếm', 'Cây cầu đỏ rực được thắp sáng về đêm, dẫn đến ngôi đền nổi tiếng trên một hòn đảo nhỏ giữa hồ.', '1654076232.jpeg', 'https://www.google.com/maps/place/C%E1%BA%A7u+Th%C3%AA+H%C3%BAc/@21.0307149,105.8506365,17z/data=!3m1!4b1!4m5!3m4!1s0x3135abeda6c43bc7:0xb9ab45d20b0dad0d!8m2!3d21.0307149!4d105.8528252?hl=vi-VN', 'cau-the-huc-391763', '2022-06-01 02:37:12', '2022-06-01 02:37:12'),
+(23, 'Hoàng Thành Thăng Long', '19C Hoàng Diệu,Phường Điện Biên,Quận Ba Đình', 'Khu hoàng thành với các tòa nhà và tác phẩm điêu khắc có từ thế kỷ 11, gồm một tòa tháp và con rồng đá.', '1654076315.jpeg', 'https://www.google.com/maps/place/Ho%C3%A0ng+Th%C3%A0nh+Th%C4%83ng+Long/@21.034381,105.8379255,17z/data=!4m6!3m5!1s0x3135aba3381d7c49:0xb521a7d98f582937!8m2!3d21.034381!4d105.8401142!10e1?hl=vi-VN', 'hoang-thanh-thang-long-906839', '2022-06-01 02:38:35', '2022-06-01 02:55:16'),
+(24, 'Nhà Tù Hỏa Lò', '1 Phố Hỏa Lò,Phường Trần Hưng Đạo,Quận Hoàn Kiếm', 'Tàn tích của nhà tù nhiều tầng dành cho tù binh ch.tranh Việt Nam chỉ còn lại khu canh gác, nay là bảo tàng.', '1654076502.jpg', 'https://www.google.com/maps/place/Di+T%C3%ADch+L%E1%BB%8Bch+S%E1%BB%AD+Nh%C3%A0+T%C3%B9+H%E1%BB%8Fa+L%C3%B2/@21.025244,105.8442046,17z/data=!3m1!4b1!4m5!3m4!1s0x3135ab96aa51de95:0x9701e10bee31af54!8m2!3d21.025244!4d105.8463933?hl=vi-VN', 'nha-tu-hoa-lo-392710', '2022-06-01 02:41:42', '2022-06-01 02:41:42'),
+(25, 'Chùa Trấn Quốc', 'Đường Thanh Niên,Phường Yên Phụ,Quận Tây Hồ', 'Chùa Phật giáo được xây trong thế kỷ 6 tọa lạc trên một hòn đảo nhỏ và thơ mộng có nhiều mộ tháp.', '1654076557.jpeg', 'https://www.google.com/maps/place/Ch%C3%B9a+Tr%E1%BA%A5n+Qu%E1%BB%91c/@21.0478876,105.8346643,17z/data=!4m6!3m5!1s0x3135abaf1da7b7af:0x767aa83a09e92b6e!8m2!3d21.0478876!4d105.836853!10e1?hl=vi-VN', 'chua-tran-quoc-658492', '2022-06-01 02:42:37', '2022-06-01 02:42:37');
 
 -- --------------------------------------------------------
 
@@ -896,7 +900,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT cho bảng `locations`
 --
 ALTER TABLE `locations`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT cho bảng `location_images`
